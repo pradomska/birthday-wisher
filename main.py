@@ -3,8 +3,8 @@ import datetime as dt
 import random
 import pandas as pd
 
-MY_EMAIL = "python32day@outlook.com"
-PASSWORD = "aiovkjscnxhzujmq"
+MY_EMAIL = "example@gmail.com"
+PASSWORD = "*********"
 
 now = dt.datetime.now()
 today_month = now.month
@@ -25,7 +25,7 @@ if (today_month, today_day) in birthdays_dict:
         print(letter)
     print(birthdays_dict[(today_month, today_day)]['email'])
     # Gmail(smtp.gmail.com), Yahoo(smtp.mail.yahoo.com), Hotmail(smtp.live.com), Outlook(smtp-mail.outlook.com)
-    with smtplib.SMTP("smtp-mail.outlook.com") as connection:
+    with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
         connection.starttls()
         connection.login(user=MY_EMAIL, password=PASSWORD)
         connection.sendmail(
